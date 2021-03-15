@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Covid Screening Webapp</title>
+    <!-- add bootstrap css file -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!-- navbar -->
+
+    <nav class="navbar navbar-expand-lg fixed-top ">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-4">
+
+                <li class="nav-item">
+                    <a class="nav-link" data-value="about" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-value="screening" href="#">Customer Screening</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-value="contact" href="#">Contact</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <!-- header -->
+    <header class="header ">
+        <div class="overlay">
+            <div class="container">
+                <div class="description">
+                    <h1>
+                        Hello ,Welcome To Covid Screening Webapp
+                        <p>
+                            <i> This screening tool provides advice, recommendations and instructions issued by the Office of the Chief Medical Officer of Health in accordance with subsection 2(3) of Schedule 1 and Schedule 6 in O. Reg. 82/20: Rules for Areas in Stage 1, and subsections
+                            2(3) of Schedule 1 in O. Reg. 263/20: Rules for Areas in Stage 2, and O. Reg. 364/20: Rules for Areas in Stage 3 made under the Reopening Ontario (A Flexible Response to COVID-19) Act, 2020 (ROA).</i></p>
+                        <button class="btn btn-outline-secondary btn-lg"><a class="text-light" href="https://www.health.gov.on.ca/en/pro/programs/publichealth/coronavirus/docs/COVID_19_bus_orgs_question_signage.pdf">See more</a></button>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="screening" id="screening">
+        <form>
+            <div class="container Card">
+                <br>
+                <h2>Contact Information
+                    <hr>
+                </h2>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control is-valid" id="firstName" placeholder="First Name" value="FirstName" required>
+
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control is-valid" id="lastName" placeholder="Last Name" value="LastName" required>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="address1">Address 1</label>
+                        <input type="text" class="form-control is-valid" id="address1" placeholder="123 xxx avenue" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Address.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="address2">Address 2</label>
+                        <input type="text" class="form-control is-valid" id="address2" placeholder="Apt, Unit number" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Address.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control is-valid" id="city" placeholder="City" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid city.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="province">Province</label>
+                        <input type="text" class="form-control is-valid" id="province" placeholder="Province" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid Province.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="zip">Zip</label>
+                        <input type="text" class="form-control is-valid" id="zip" placeholder="Zip" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input is-valid" type="checkbox" value="" id="invalidCheck3" required>
+                        <label class="form-check-label" for="invalidCheck3">Agree to terms and conditions</label>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row text-center">
+                    <button class="btn btn-primary btn-lg btn-block " type="submit" id="updateButton" onclick="customerUpdate();">Submit form</button>
+                </div>
+                <br>
+                <br><br>
+                <div class="row">
+                    <table id="customerTable" class="table table-striped table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Edit</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Address 1</th>
+                                <th>Address 2</th>
+                                <th>City</th>
+                                <th>Province</th>
+                                <th>Zip</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <br>
+        </form>
+        <form>
+            <div class="container card" id="covidTest">
+                <br>
+                <h2 class="text-primary">Covid Screening Questions:
+                    <hr>
+                </h2>
+
+                <div class="row">
+
+                    <div class="col-md-10">
+                        <label class="form-check-label" for="invalidCheck3">
+                              1. Do you have one or more of the COVID-19 symptoms like fever, cough?
+                          </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rb11" value="option1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rb10" value="option2" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label class="form-check-label" for="invalidCheck3">
+                    2. Has a doctor, health care provider, or public health unit told you that you should
+                    currently be isolating (staying at home)?
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="rb21" value="option1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="rb20" value="option2" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label class="form-check-label" for="invalidCheck3">
+                  3. Have you been identified as a “close contact” of someone who currently has
+COVID-19 in the last 14 days?
+                      </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="rb31" value="option1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="rb30" value="option2" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label class="form-check-label" for="invalidCheck3">
+                4. Have you received a COVID Alert exposure notification on your cell phone in the
+                last 14 days (and have not been tested or waiting for your result)?
+                    </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="rb41" value="option1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="rb40" value="option2" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label class="form-check-label" for="invalidCheck3">
+              5. Have you or anyone you live with traveled outside of Canada in the last 14 days?*
+                  </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions5" id="rb51" value="option1" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions5" id="rb50" value="option2" required>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-check form-check-inline">
+                    <input type="submit" class="form-control  btn btn-info btn-lg mt-3 " value="Submit" name="submit" id="myBtn" onClick="checkScreening();" />
+                </div>
+
+            </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+    <!-- about section -->
+    <div class="about" id="about">
+        <div class="container">
+            <h1 class="text-center">About Me</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <img src="images/Sofi Profile picture.png" class="img-fluid">
+                    <span class="text-justify">S.Web Developer</span>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 desc">
+
+                    <h3>Developed By: Sofyia Seid</h3>
+                    <p>
+                        Experienced Architectural Design professional specializing in residential and commercial 
+                        building design. Proficient in providing end to end solution for design and development of 
+                        various projects. Possess 1 year of experience as a Front-end Web Developer. 
+                        Received Web Developer Foundations Certificate, and currently upskilling and 
+                        completing additional Web Development courses through IBM, SkillsBuild platform. 
+                        Ability to learn quickly and formulate meaningful work relationships. Adaptable, 
+                        diverse and experienced in working with a variety of cultures and people 
+                        form my 4 years work experience with United Nations Mission. Strong in 
+                        communication and highly organized with proven time management skills and, 
+                        proven ability to solve problems in a creative and innovative way. I am passinat in and 
+                        skilled at learning and excelling at new technology Seeking 
+                        opportunities where my skills and experience can be applied to IT and Technology projects. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="contact-form" id="contact">
+        <div class="container">
+            <form>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <h1>Get in Touch</h1>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 right">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Your Name" name="">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control form-control-lg" placeholder="YourEmail@email.com" name="email">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control form-control-lg">				   	 	
+            </textarea>
+                        </div>
+                        <input type="submit" class="btn btn-secondary btn-block" value="Send" name="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- add Javasscript file from js file -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='js/index.js'></script>
+
+</body>
+
+</html>
